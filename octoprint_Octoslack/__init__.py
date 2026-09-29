@@ -4684,7 +4684,7 @@ class OctoslackPlugin(
 
         upload_rsp = None
         with open(local_file_path, "rb") as file_to_upload:
-            upload_rsp = slack_client.files_upload(
+            upload_rsp = slack_client.files_upload_v2(
                 channels=channels,
                 filename=dest_filename,
                 title=file_description,
