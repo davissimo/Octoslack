@@ -3141,7 +3141,9 @@ class OctoslackPlugin(
                                 self._slack_next_progress_snapshot_time > 0
                                 and now < self._slack_next_progress_snapshot_time
                             ):
+                                ##Throttled snapshot won't be sent, so delete its local temp file
                                 snapshot_msg = None
+                                self.delete_file(hosted_url)
                             else:
                                 if event == "Progress":
                                     self._slack_next_progress_snapshot_time = (
